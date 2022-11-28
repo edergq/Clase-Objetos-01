@@ -16,6 +16,11 @@ def listar_articulos():
         Articulo.imprimir_cadena(art)
 
 
+def buscar_articulo():
+    codigo: str = str(input("Ingrese CODIGO para buscar: "))
+    for art in listaArticulos:
+        if art.codigo == codigo:
+            Articulo.imprimir_cadena(art)
 
 def main():
     continuar: bool = True
@@ -28,6 +33,7 @@ def main():
         print("**************INGRESE OPCIONES***********")
         print("       1: PARA AGREGAR producto")
         print("       2: PARA LISTAR producto")        
+        print("       3: PARA BUSCAR producto")        
         print("       10: PARA SALIR")
         caso: str = str(input("INGRESE OPCIÓN: "))
         match caso:
@@ -35,7 +41,8 @@ def main():
                 crear_articulo()
             case "2":
                 listar_articulos()
-           
+            case "3":
+                buscar_articulo()
             case "10":
                 continuar = False
 
